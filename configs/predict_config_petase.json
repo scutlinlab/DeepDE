@@ -1,0 +1,41 @@
+{
+	"wt_seq": "MNFPRASRLMQAAVLGGLMAVSAAATAQTNPYARGPNPTAASLEASAGPFTVRSFTVSRPSGYGAGTVYYPTNAGGTVGAIAIVPGYTARQSSIKWWGPRLASHGFVVITIDTNSTLDQPSSRSSQQMAALRQVASLNGTSSSPIYGKVDTARMGVMGWSMGGGGSLISAANNPSLKAAAPQAPWDSSTNFSSVTVPTLIFACENDSIAPVNSSALPIYDSMSRNAKQFLEINGGSHSCANSGNSNQALIGKKGVAWMKRFMDNDTRYSTFACENPNSTRVSDFRTANCS",
+	"seq_start": 28,
+	"seq_end": 290,
+	"struct_seq_len": 262,
+	"min_pos": 27,
+	"max_pos": 289,
+	
+	"//": "p/g: PETase/GFP; s/a: stab/activ; p/u: PtsRep/UniRep; m/g: MCMC/GA; e/i: exclude-1/include-1; 50/all: select_method",
+	"exp_name": "21101324_cui_split3",
+	"training_set_file": "/home/caiyi/data/petase/cui2021_splits/train_3.csv",
+	"test_set_file": "/home/caiyi/data/petase/cui2021_splits/test_3.csv",
+	"model_path": "/home/caiyi/seqrep/outputs/models/lm__21091902_eptsrep_384_petase_correct-knr/30_27651_model.pth.tar",
+	"pdb_path": "/home/caiyi/data/petase/pdb/6qgc.pdb",
+	"//train_rep_path": "/home/caiyi/embed/petase/self_20201215_5_sota_right_n2_knnnet150_del_tor_50",
+	"//train_rep_path": "/home/caiyi/embed/petase/lm__21091902_eptsrep_384_petase_correct-knr__30",
+	"train_rep_path": "/home/caiyi/embed/petase/cui2021_eptsrep",
+	"//test_rep_path": "/home/caiyi/embed/petase/cui2021_ptsrep",
+	"test_rep_path": "/home/caiyi/embed/petase/cui2021_eptsrep",
+	"train_rep_src": "load_by_name",
+	"test_rep_src": "load_by_name",
+	"load_model_method": "state_dict",
+	"fitness_name": "delta_Tm_scaled",
+	"test_fitness_name": "delta_Tm_scaled",
+	"gpu": 5,
+
+	"model": "eptsrep_petase",
+	"//model": "ptsrep",
+	"//sampling_method": "all",
+	"sampling_method": "50-50_1.0",
+	"n_train_seqs": null,
+	"batch_size": 200,
+
+	"seed": 0,
+
+    "n_members": 100,
+    "subspace_proportion": 0.5,
+    "pval_cutoff": 0.01,
+    "normalize": true,
+	"sparse_refit": true
+}

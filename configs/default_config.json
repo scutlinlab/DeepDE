@@ -1,0 +1,13 @@
+{
+	"nmut_threshold": 15, 
+	"temp_decay_rate": 1.0, 
+	"output_file": "GFP_SimAnneal-ET_Global_Init_1-0096-00-3ea5f6e.p", 
+	"min_mut_pos": 29, 
+	"n_chains": 3500, 
+	"n_train_seqs": 96, 
+	"seed": 0, 
+	"T_max": "np.array([0.01] * 3500)", 
+	"sa_n_iter": 3000, 
+	"model": "ET_Global_Init_1", 
+	"max_mut_pos": 110
+}

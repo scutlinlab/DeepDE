@@ -1,0 +1,11 @@
+python /home/wangqihan/Low-N-improvement/low_n_main_hotspot.py \
+    --seed 0 \
+    --gpu 3 \
+    --sampling_method random_1-2 \
+    --n_train_seqs 1000 \
+    --model_name eUniRep \
+    --training_objectives gfp_SK_test_3 \
+    --use_bright 0 \
+    --do_design True \
+    --do_test True \
+    --save_test_result False
