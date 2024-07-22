@@ -1,5 +1,5 @@
 # DeepPE
-# DeepMineLys
+
 
 Inspired by classic directed protein evolution, we developed DeepPE, a protocol for deep learning-guided protein evolution. DeepPE incorporates three deep learning components (unsupervised, weak-positive only, and supervised learning) from the low-N algorithm. Key features of this approach include: 1) Expanding the supervised training dataset to 1,000 single or double mutants from the Sarkisyan dataset, using a 1/9 split setting. 2) Limiting the mutation radius to three, reducing computational workload and enabling the use of a standard mutagenesis kit to explore alternative triple mutants. 3) Implementing an iterative design cycle over five rounds.
 
