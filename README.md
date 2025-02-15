@@ -1,13 +1,13 @@
-# DeepPE
+# DeepDE
 
 
-Inspired by classic directed protein evolution, we developed DeepPE, a protocol for deep learning-guided protein evolution. DeepPE incorporates three deep learning components (unsupervised, weak-positive only, and supervised learning) from the low-N algorithm. Key features of this approach include: 1) Expanding the supervised training dataset to 1,000 single or double mutants from the Sarkisyan dataset, using a 1/9 split setting. 2) Limiting the mutation radius to three, reducing computational workload and enabling the use of a standard mutagenesis kit to explore alternative triple mutants. 3) Implementing an iterative design cycle over five rounds.
+Inspired by classic directed protein evolution, we developed DeepDE, a protocol for deep learning-guided protein evolution. DeepDE incorporates three deep learning components (unsupervised, weak-positive only, and supervised learning) from the low-N algorithm. Key features of this approach include: 1) Expanding the supervised training dataset to 1,000 single or double mutants from the Sarkisyan dataset, using a 1/9 split setting. 2) Limiting the mutation radius to three, reducing computational workload and enabling the use of a standard mutagenesis kit to explore alternative triple mutants. 3) Implementing an iterative design cycle over five rounds.
 
 Our work marks a significant advancement in protein design and engineering, with potential applications in biotechnology.Our model training was conducted on a workstation with dual Ubuntu 18.04.03 and NVIDIA GeForce RTX 2080Ti graphics-processing unit.
 
 ------
 
-Software Name: DeepPE V1.0
+Software Name: DeepDE V1.0
 
 Year: 2024
 
@@ -34,20 +34,20 @@ No one is permitted to use, copy, modify, merge, publish, distribute, sublicense
 Standard (harder):
 
 Requirements in Ubuntu:
-  conda env create -f DeepPE.yml
+  conda env create -f DeepDE.yml
 
-### 2. DeepPE USAGE
+### 2. DeepDE USAGE
 
 ```
 # running on command line
-source activate DeepPE
+source activate DeepDE
 # change the main paraments in ./sh/model_seed_single.sh
 python "the path to low_n_mian.py"
 --seed the random seed to choose the training dataset, default 0
 --gpu the gpu id for the script used
 --use_bright 1 for only used the data which score >=1.04 for training, and 0 do not have any limitations
 --predict_design_seqs 1 for used the trained model to design the mutation, 0 for nothing
---do_design True for training the DeepPE model amd 0 for nothing
+--do_design True for training the DeepDE model amd 0 for nothing
 ```
 
 
