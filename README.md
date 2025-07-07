@@ -1,5 +1,23 @@
 # DeepDE
 
+DeepDE is a deep learning-driven framework for protein engineering that integrates supervised, unsupervised, and weak-positive-only learning strategies to guide mutagenesis and accelerate functional optimization. It is designed to address key challenges in the vast combinatorial space of protein sequence variation, especially for triple mutant exploration.
+🚀 Key Features
+Triple-mutation design with a fixed mutation radius of 3, expanding the search space to over 10¹⁰ variants.
+Two complementary design modes:
+DM (Direct Prediction): Direct inference of beneficial triple mutants.
+SM (Screening-guided Mutagenesis): Predictive identification of triple mutation sites, followed by targeted experimental library construction.
+Iterative training and evolution cycles, mimicking directed evolution but enhanced by machine learning.
+Experimental validation using avGFP as a model system, achieving up to 74.3-fold improvement in activity within 4 rounds, surpassing benchmarks like sfGFP.
+🎯 Why DeepDE?
+Classical directed evolution is labor-intensive and slow. Existing AI-guided approaches often lack iterative design capabilities and robust experimental validation. DeepDE overcomes both limitations by:
+Incorporating data-efficient supervised learning (starting from only 1,000 single/double mutants).
+Enabling generalization beyond training distribution.
+Integrating mutational screening with model-based prediction in an iterative framework.
+📈 Notable Results
+Path III (SM-only strategy) showed the most consistent and effective optimization trajectory.
+Outperformed state-of-the-art protein engineering algorithms like Low-N and EVOLVEpro.
+Demonstrated capability to generalize and improve from limited data across multiple design cycles.
+
 
 Inspired by classic directed protein evolution, we developed DeepDE, a protocol for deep learning-guided protein evolution. DeepDE incorporates three deep learning components (unsupervised, weak-positive only, and supervised learning) from the low-N algorithm. Key features of this approach include: 1) Expanding the supervised training dataset to 1,000 single or double mutants from the Sarkisyan dataset, using a 1/9 split setting. 2) Limiting the mutation radius to three, reducing computational workload and enabling the use of a standard mutagenesis kit to explore alternative triple mutants. 3) Implementing an iterative design cycle over five rounds.
 
@@ -49,77 +67,5 @@ python "the path to low_n_mian.py"
 --predict_design_seqs 1 for used the trained model to design the mutation, 0 for nothing
 --do_design True for training the DeepDE model amd 0 for nothing
 ```
-
-
-
-### 3. Examples
-
 ```
-# First input protein sequences file
-# input.fasta
->seq_1
-MAKVQFKPRATTEAIFVHCSATKPSQNVGVREIRQWHKEQGWLDVGYHFIIKRDGTVEAGRDELAVGSHAKGYNHNSIGVCLVGGIDDKGKFDANFTPAQMQSLRSLLVTLLAKYEGSVLRAHHDVAPKACPSFDLKRWWEKNELVTSDRG	
->seq_2
-MPENVPRSGLYYWPINPRKARPDVRYLDPDYYLGVKRPDGSWLVPPGYWHTGVDLNGPGGGDTDCGQPVHAMTDGRVVIAGRFPVWGGMVVLWHPSAGVWTRYGHLRDILVHPGDVVVAGQQIGTIGKMTTGGYCHLHFDVFIRVPPASEGGWLFFPRGGEEARQKVLTYLVDPEAFLAKQAQAGRLREPPAWRTA
->seq_3
-MTEPTDTPSTPEPVAPAAPAPAAPAPKSEDLPDWAREKLSKANTEAANYRVQLRTVETERDSLAEKLAALEAQAAQAATSASERQNDFDRLVTAVQALTPDPTPLFTFANTLQGDSEEALKTHAESLKTLFGLKNGPVAAVDRSQGLGTEAPSNDPAVAFTALMKNQLGK
->seq_4
-MKERRQRLRKSGAFGGQRVRYFKILCIVLFASLLVACHQISSGTVVDKYIDEPHTTFIPVINGKSSVLVPTRTKRKYILVVSGFTGNKQVEERFEVTANEYKHYEIGNTFIQDAVLENKEEDKE
->seq_5
-MTVMRIEQLVEMYIDNIYNYPYPYDEAMFNKKNEEIRPYVDNSLYKAIQRLRPYYDVIEYMNISKKDYNVKEVTTGQYEVDFEVTSVSKTNFNHYAESTFKETIKIQLNPIKIESLDDSATQHYATYQDLEDDYKYDLTLPHKASELVQKNINNKSIQYQFKGAPKDNPFESDTTSLLDSYNMVYWLYNDEETNLNYPLDYNSILNSGVFKDISVRHKYISDIDLLEDGDLLFFGKNNNEVGIYVGDKEYVTIKGKFPKDNTTIQKYNLEKDWELFNGKIYRLKDDYL		
->seq_6
-MAQPQIAANKTKALRIGQRLMVGAKSFGKGVRNSVDTSQQVITQSARKIKSDQKRINAENKKQERFEDAVREETERRQKSLTKGAYGVGSAAKKLTEKVMVDPMKAIWNIIAAWAIKNLPIIVDEVRKFVKKVRIVIAAINNAFRATGNLFKGWLSYGQAWLTNMVTFDWGDSTGRLEEAQAEIDNSYDELDASWNTIYNVWGKEEEELDKMLTWLDSGKTIKQATDAITQGIPLPQTPAFGDGSREGGGGYGGSGIQMSADEQQLTESLIAGEEGVRTKAYQDTEGIWTIGYGQTRINGRAVRPGDTITKAQALGGFRGALAEHQQRAINQLGEERWSQLDARSRAVLTSITYNYGSIPGRVLPAAKTGNAEDIAVAMNSLYGDNRGVLKGRRQREQSILRGGTSSYLDKDFMAGGQFAGSGTGPLVMGGGNESTSGSISSSGGTTNTTAMKRGDMVGGFSVSSAFGRRAAPTAGASSNHGGLDIATPQGTYLAFDVDVEIMFAGSAGGYGYVIDAWSASLGIQFRCAHMSVLMCNPGQKVRAGTAVGRTGGAVGSRGAGTSTGPHLHFEVSNQKGSANYGGSNSASMLARYAKHLILSSSKPQPQSLRPATVSSSSQQTANQLNSSASSRRTNGRRTDQKIILIKENTIIK	
->seq_7
-MQKPDGLYEVLNIVRVFYEHGIDEHLSVCLLIEMIGSDIVLGVSRAWAFHELSSFKFRKGLVSHLATALFVIIFYPFAIFMHLGSVIDTFIYAMMAAYGSSILANLSSLGVKFPYIDRYIRLNIDKEKFILLDEEEEEEND
->seq_8
-MKKRKKKMINFKLRLQNKATLVALISAVFLMLQQFGLHVPNNIQEGINTLVGILVILGIITDPTTKGIADSERALSYIQPLDDKEVY
-```
-
-Format of Input file:
-
-The input_seq_file is represented in a sequence file with specific formatting:
-
-- File size: N × 1905, where N represents the number of sequences.
-- The file consists of multiple rows, each containing the following components:
-  - Column 1: Sequence name.
-  - Columns 2 to 1901: TAPE embedding.
-  - Columns 1902 to 1905: PHY embedding.
-
-```
-# input_sequences_file.csv
-1,seq_1,0.4757,0.482,0.5053,0.4481,0.3669,0.5189,0.3791,...,0.4777.4,0.4491.1,0.4732.2,0.7467160165049,4.450799961725889,-0.43443708609271503,77.4834437086093
-1,seq_2,0.4973,0.5069,0.5056,0.4748,0.3633,0.5021,0.3436,...,0.3981,0.4945,0.4782,0.681948663202157,2.49431590626754,-0.29642857142857104,76.0204081632653
-0,seq_3,0.4868,0.4542,0.4904,0.4504,0.4745,0.4678,0.5096,...,0.4519,0.5594,0.5473,0.610328043602646,-7.93617720907427,-0.49764705882352894,70.8823529411765
-0,seq_4,0.5158,0.5037,0.5913,0.4964,0.5676,0.5072,0.3839,...,0.344,0.4701,0.5143,0.465177119730606,5.13562442998637,-0.364516129032258,87.90322580645159
-2,seq_5,0.4766,0.4602,0.5086,0.466,0.4483,0.4831,0.3514,...,0.493,0.5284,0.4874,0.6530285153584701,-15.661930598998401,-0.7701388888888892,78.125
-2,seq_6,0.4922,0.5336,0.5074,0.4363,0.3494,0.4843,0.5136,...,0.4999,0.5204,0.5631,0.8150300725595551,20.449946237806,-0.447166921898928,72.2511485451761
-3,seq_7,0.532,0.5195,0.5539999999999999,0.5093,0.5438,0.575,0.4492,...,0.5696,0.5589,0.5103,0.626468764274431,-8.62963134384603,0.39361721276596,115.460992907801
-3,seq_8,0.5606,0.544,0.5815,0.5423,0.5957,0.5938,0.4881,...,0.5108,0.5201,0.5335,0.566070600668809,5.036402725200539,0.141379310344828,124.367816091954
-
-```
-
-Format of output file:
-
-- The predict output file size: N × 6, where N represents the number of sequences.
-
-- The predict output file consists of multiple rows, each containing the following components:
-
-  - Column 1: Sequence name.
-
-  - Column 2 : Predict lable (0 for Non-EVH, 1 for Endolysin, 2 for VAL and 3 for Holin).
-
-  - Column 3 to 6: Prediction score of Non-EVH, Endolysin, VAL and Holin, respectively.
-
-    
-
-```
-# output_prediction_file
-seq_1	1	0.0378	0.9470	0.0081	0.0072
-seq_2	1	0.0088	0.9884	0.0021	0.0007
-seq_3	0	0.9997	0.0002	0.0001	0.0000
-seq_4	0	0.6698	0.1755	0.0939	0.0608
-seq_5	2	0.3200	0.0148	0.6378	0.0273
-seq_6	2	0.0068	0.0016	0.9898	0.0018
-seq_7	3	0.2206	0.1959	0.1738	0.4097
-seq_8	3	0.0128	0.0136	0.0080	0.9656
-```
+⚠ Note: Due to server-related issues, the latest version of the code will be available on July 10th.
