@@ -68,4 +68,4 @@ python "the path to low_n_mian.py"
 --do_design True for training the DeepDE model amd 0 for nothing
 ```
 ```
-⚠ Note: Due to server-related issues, the latest version of the code will be available on July 10th.
+⚠ Note: Due to server-related issues, the latest version of the code will be available on July 15th.
