@@ -1,6 +1,7 @@
 # DeepDE
 
 DeepDE is a deep learning-driven framework for protein engineering that integrates supervised, unsupervised, and weak-positive-only learning strategies to guide mutagenesis and accelerate functional optimization. It is designed to address key challenges in the vast combinatorial space of protein sequence variation, especially for triple mutant exploration.
+
 🚀 Key Features
 Triple-mutation design with a fixed mutation radius of 3, expanding the search space to over 10¹⁰ variants.
 Two complementary design modes:
@@ -8,11 +9,13 @@ DM (Direct Prediction): Direct inference of beneficial triple mutants.
 SM (Screening-guided Mutagenesis): Predictive identification of triple mutation sites, followed by targeted experimental library construction.
 Iterative training and evolution cycles, mimicking directed evolution but enhanced by machine learning.
 Experimental validation using avGFP as a model system, achieving up to 74.3-fold improvement in activity within 4 rounds, surpassing benchmarks like sfGFP.
+
 🎯 Why DeepDE?
 Classical directed evolution is labor-intensive and slow. Existing AI-guided approaches often lack iterative design capabilities and robust experimental validation. DeepDE overcomes both limitations by:
 Incorporating data-efficient supervised learning (starting from only 1,000 single/double mutants).
 Enabling generalization beyond training distribution.
 Integrating mutational screening with model-based prediction in an iterative framework.
+
 📈 Notable Results
 Path III (SM-only strategy) showed the most consistent and effective optimization trajectory.
 Outperformed state-of-the-art protein engineering algorithms like Low-N and EVOLVEpro.
