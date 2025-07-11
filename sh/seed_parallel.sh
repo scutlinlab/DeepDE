@@ -1,0 +1,5 @@
+python /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict.py -cf /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict_config_gfp_nn.json -s 0 -g 0&
+python /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict.py -cf /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict_config_gfp_nn.json -s 1 -g 1&
+python /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict.py -cf /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict_config_gfp_nn.json -s 2 -g 2&
+python /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict.py -cf /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict_config_gfp_nn.json -s 3 -g 3&
+python /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict.py -cf /home/wangqihan/low-N-protein-engineering-master/泛化验证/Low-N/predict_config_gfp_nn.json -s 4 -g 4&  

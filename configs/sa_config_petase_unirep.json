@@ -1,0 +1,46 @@
+{
+	"wt_seq": "MNFPRASRLMQAAVLGGLMAVSAAATAQTNPYARGPNPTAASLEASAGPFTVRSFTVSRPSGYGAGTVYYPTNAGGTVGAIAIVPGYTARQSSIKWWGPRLASHGFVVITIDTNSTLDQPSSRSSQQMAALRQVASLNGTSSSPIYGKVDTARMGVMGWSMGGGGSLISAANNPSLKAAAPQAPWDSSTNFSSVTVPTLIFACENDSIAPVNSSALPIYDSMSRNAKQFLEINGGSHSCANSGNSNQALIGKKGVAWMKRFMDNDTRYSTFACENPNSTRVSDFRTANCS",
+	"seq_start": 28,
+	"seq_end": 290,
+	"struct_seq_len": 262,
+	"min_pos": 27,
+	"max_pos": 289,
+
+	"//": "p/g: PETase/GFP; s/a: stab/activ; p/u: PtsRep/UniRep; m/g: MCMC/GA; e/i: exclude-1/include-1; 50/all: select_method",
+	"exp_name": "21101506_paumnall",
+	"//training_set_file": "/home/caiyi/data/petase/petase_new_exclude-1.csv",
+	"training_set_file": "/home/caiyi/data/petase/petase_new.csv",
+	"model_path": "",
+	"pdb_path": "",	
+	"rep_path": "",
+	"train_rep_src": "generate",
+	"load_model_method": "state_dict",
+	"//fitness_name": "stability",
+	"fitness_name": "activity",
+	"gpu": 1,
+	
+	"use_ga": false,
+	"model": "eunirep_petase",
+	"sampling_method": "all",
+	"n_train_seqs": null,
+	"n_chains": 1000,
+	"batch_size": 1000,
+	"sa_n_iter": 1000,
+
+	"seed": 0,
+	"nmut_radius": 15,
+	"init_nmut_radius": 3,
+
+	"k": 1,
+	"T_max": 0.01,
+	"temp_decay_rate": 1.0,
+	"crossover_rate": 0.8,
+	"mutation_rate": 0.0035,
+	"save_every_iter": true,
+
+    "n_members": 100,
+    "subspace_proportion": 0.5,
+    "pval_cutoff": 0.01,
+    "normalize": true,
+	"sparse_refit": true
+}

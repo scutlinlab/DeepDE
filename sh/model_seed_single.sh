@@ -1,0 +1,14 @@
+python /home/wangqihan/github/Low-N-improvement/low_n_main.py \
+    --seed 0 \
+    --gpu 0 \
+    --sampling_method random_1-2 \
+    --n_train_seqs 1000 \
+    --top_model_name lin \
+    --model_name PtsRep \
+    --training_objectives gfp_SK_test_2 \
+    --use_bright 1 \
+    --do_method3 0 \
+    --predict_design_seqs 01 \
+    --do_design False \
+    --do_test False \
+    --save_test_result False

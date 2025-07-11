@@ -1,0 +1,40 @@
+{
+	"wt_seq": "MNFPRASRLMQAAVLGGLMAVSAAATAQTNPYARGPNPTAASLEASAGPFTVRSFTVSRPSGYGAGTVYYPTNAGGTVGAIAIVPGYTARQSSIKWWGPRLASHGFVVITIDTNSTLDQPSSRSSQQMAALRQVASLNGTSSSPIYGKVDTARMGVMGWSMGGGGSLISAANNPSLKAAAPQAPWDSSTNFSSVTVPTLIFACENDSIAPVNSSALPIYDSMSRNAKQFLEINGGSHSCANSGNSNQALIGKKGVAWMKRFMDNDTRYSTFACENPNSTRVSDFRTANCS",
+	"seq_start": 28,
+	"seq_end": 290,
+	"struct_seq_len": 262,
+	"min_pos": 27,
+	"max_pos": 289,
+
+	"//": "p/g: PETase/GFP; s/a: stab/activ; p/u: PtsRep/UniRep; m/g: MCMC/GA; e/i: exclude-1/include-1; 50/all: select_method",
+	"exp_name": "21101321_cui_split5",
+	"//training_set_file": "/home/caiyi/data/petase/petase_include-1.csv",
+	"training_set_file": "/home/caiyi/data/petase/cui2021_splits/train_5.csv",
+	"//test_set_file": "/home/caiyi/data/petase/cui2021.csv",
+	"test_set_file": "/home/caiyi/data/petase/cui2021_splits/test_5.csv",
+	"model_path": "",
+	"pdb_path": "",	
+	"train_rep_path": "",
+	"test_rep_path": "",
+	"train_rep_src": "generate",
+	"test_rep_src": "generate",
+	"load_model_method": "",
+	"fitness_name": "delta_Tm_scaled",
+	"test_fitness_name": "delta_Tm_scaled",
+	"gpu": 5,
+	
+	"//model": "eunirep_petase",
+	"model": "unirep",
+	"//sampling_method": "all",
+	"sampling_method": "50-50_1.0",
+	"n_train_seqs": null,
+	"batch_size": 200,
+
+	"seed": 0,
+
+    "n_members": 100,
+    "subspace_proportion": 0.5,
+    "pval_cutoff": 0.01,
+    "normalize": true,
+	"sparse_refit": true
+}
