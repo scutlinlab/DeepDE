@@ -56,19 +56,56 @@ Standard (harder):
 
 Requirements in Ubuntu:
   conda env create -f DeepDE.yml
+  conda activate DeepDE
 
 ### 2. DeepDE USAGE
+### Example Command (Design + Prediction)
+```bash
+python main.py \
+  --seed 42 \
+  --gpu 0 \
+  --model_name eUniRep \
+  --training_objectives gfp_SK_test_2 \
+  --do_design True \
+  --save_test_result False \
+  --n_train_seqs 1000 \
+  --sampling_method random \
+  --top_model_name lin \
+  --stati_target top_5%_func
+### Predict Previously Designed Sequences
+python main.py \
+  --seed 42 \
+  --gpu 0 \
+  --model_name eUniRep \
+  --training_objectives gfp_SK_test_2 \
+  --do_design False \
+  --predict_design_seqs 1 \
+  --n_train_seqs 1000 \
+  --sampling_method random \
+  --top_model_name lin \
+  --stati_target top_5%_func
+## 3.Argument Explanation
+| Argument | Description |
+|----------|-------------|
+| `--seed` | Random seed for reproducibility (**required**) |
+| `--gpu` | GPU index to use (default: 0) |
+| `--model_name` | Representation model to use (`UniRep`, `eUniRep`, `Random_UniRep`, `eUniRep-Augmenting`, etc.) |
+| `--customize_train_set` | Path to a user-defined CSV training set (optional) |
+| `--training_objectives` | Fitness objective label (e.g., `gfp_SK_test_2`) |
+| `--do_design` | Whether to perform mutational design (`True` or `False`) |
+| `--save_test_result` | Whether to save prediction results |
+| `--n_train_seqs` | Number of sequences in training set |
+| `--sampling_method` | How to sample training set (`random`, `bright`, etc.) |
+| `--top_model_name` | Top model to use (`lin`, `rf`, `inference`) |
+| `--use_bright` | Whether to use only bright sequences in training |
+| `--stati_target` | Statistical filtering target for mutation site selection (`top_1%_func`, `top_5%_func`, etc.) |
+| `--predict_design_seqs` | Whether to evaluate the designed sequences |
 
-```
-# running on command line
-source activate DeepDE
-# change the main paraments in ./sh/model_seed_single.sh
-python "the path to low_n_mian.py"
---seed the random seed to choose the training dataset, default 0
---gpu the gpu id for the script used
---use_bright 1 for only used the data which score >=1.04 for training, and 0 do not have any limitations
---predict_design_seqs 1 for used the trained model to design the mutation, 0 for nothing
---do_design True for training the DeepDE model amd 0 for nothing
-```
+## 4.Output Structure
+- `all_2_mutation/` – Prediction results of all 2-site mutants
+- `all_3_mutation/` – Statistical rankings of triple mutations
+- `design_seqs/` – Designed sequences selected by statistical filters
+- `design_seqs_result/` – Predicted values of designed sequences
+
 ```
 ⚠ Note: Due to server-related issues, the latest version of the code will be available on July 15th.
