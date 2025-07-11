@@ -108,4 +108,3 @@ python main.py \
 - `design_seqs_result/` – Predicted values of designed sequences
 
 ```
-⚠ Note: Due to server-related issues, the latest version of the code will be available on July 15th.
