@@ -53,11 +53,11 @@ No one is permitted to use, copy, modify, merge, publish, distribute, sublicense
 ### 1. INSTALLATION
 
 Standard (harder):
-
+```
 Requirements in Ubuntu:
   conda env create -f DeepDE.yml
   conda activate DeepDE
-
+```
 ### 2. DeepDE USAGE
 ### Example Command (Design + Prediction)
 ```bash
